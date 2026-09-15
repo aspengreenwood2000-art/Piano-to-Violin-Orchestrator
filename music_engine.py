@@ -1,5 +1,14 @@
+import io
 import music21 as m21
 import numpy as np
+
+def apply_violin_range_filter(midi_bytes, strategy="octave_shift"):
+    """
+    Parses MIDI bytes, applies violin filtering logic, 
+    and returns processed MIDI bytes.
+    """
+  
+    score = m21.converter.parse(midi_bytes, format="midi")
 
 VIOLIN_MIN_MIDI = 55  # G3
 VIOLIN_MAX_MIDI = 100 # E7
@@ -144,3 +153,9 @@ if uploaded_file is not None:
             
 
 st.divider()
+
+   output_buffer = io.BytesIO()
+    score.write("midi", fp=output_buffer)
+    output_buffer.seek(0)
+    
+    return output_buffer.getvalue()
