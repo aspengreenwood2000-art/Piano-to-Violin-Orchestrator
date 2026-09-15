@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano-to-Violin Orchestrator</title>
 
-stlite.mount(`const pythonCodeArray = [
+`const engineCode = [
   "import music21 as m21",
   "import numpy as np",
   "",
@@ -14,9 +14,23 @@ stlite.mount(`const pythonCodeArray = [
   "    return notes"
 ].join("\n");
 
- files: {
-  "music_engine.py": engineCode,
-  "app.py": appCode
-};`)
-    
+const appCode = [
+  "import streamlit as st",
+  "from music_engine import apply_violin_range_filter",
+  "",
+  "st.title('Violin Orchestrator')",
+  "st.write('Engine loaded successfully!')"
+].join("\n");
+
+stlite.mount(
+  {
+    requirements: ["music21", "numpy"],
+    entrypoint: "app.py",
+    files: {
+      "music_engine.py": engineCode,
+      "app.py": appCode
+    }
+  },
+  document.getElementById("root")
+);`
     </html>  
