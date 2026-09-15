@@ -2,7 +2,7 @@ name: Deploy Stlite App to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Triggers automatically whenever you push to main
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -21,16 +21,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."  # Uploads index.html and music_engine.py from root
+          path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        
