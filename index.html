@@ -14,7 +14,9 @@ stlite.mount(`const pythonCodeArray = [
   "    return notes"
 ].join("\n");
 
-// Inject into virtual file map
-const files = {
-  "music_engine.py": pythonCodeArray
+ files: {
+  "music_engine.py": engineCode,
+  "app.py": appCode
 };`)
+
+     
