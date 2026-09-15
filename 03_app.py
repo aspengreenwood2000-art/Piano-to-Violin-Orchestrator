@@ -1,3 +1,7 @@
+import importlib
+music_engine = importlib.import_module("02_music_engine")
+apply_violin_range_filter = music_engine.apply_violin_range_filter
+
 import io
 import music21 as m21
 import streamlit as st
