@@ -23,9 +23,10 @@ const appCode = [
 ].join("\n");
 
 stlite.mount(
-  {
+  {URL: "app.py", "music_engine"
     requirements: ["music21", "numpy"],
     entrypoint: "app.py",
+    
     files: {
       "music_engine.py": engineCode,
       "app.py": appCode
