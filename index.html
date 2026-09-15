@@ -4,34 +4,4 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano-to-Violin Orchestrator</title>
-
-`const engineCode = [
-  "import music21 as m21",
-  "import numpy as np",
-  "",
-  "def apply_violin_range_filter(notes, strategy='octave_shift'):",
-  "    print('Filtering notes...')",
-  "    return notes"
-].join("\n");
-
-const appCode = [
-  "import streamlit as st",
-  "from music_engine import apply_violin_range_filter",
-  "",
-  "st.title('Violin Orchestrator')",
-  "st.write('Engine loaded successfully!')"
-].join("\n");
-
-stlite.mount(
-  {URL: "app.py", "music_engine"
-    requirements: ["music21", "numpy"],
-    entrypoint: "app.py",
-    
-    files: {
-      "music_engine.py": engineCode,
-      "app.py": appCode
-    }`
-  },
-  document.getElementById("root")
-);`
     </html>  
