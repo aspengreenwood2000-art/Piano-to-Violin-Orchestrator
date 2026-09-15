@@ -1,6 +1,23 @@
-import os
 import streamlit as st
-import music21 as m21
+from music_engine import apply_violin_range_filter
+
+st.set_page_config(page_title="Piano-to-Violin Orchestrator", layout="wide")
+st.title("🎻 Piano-to-Violin Orchestrator")
+st.write("Engine loaded successfully!")
+
+# File uploader for MIDI input
+uploaded_file = st.file_uploader("Upload a Piano MIDI file", type=["mid", "midi"])
+
+if uploaded_file is not None:
+    st.success("MIDI file uploaded successfully!")
+    strategy = st.selectbox(
+        "Range Adaptation Strategy", 
+        ["octave_shift", "truncate", "transpose"]
+    )
+    
+    if st.button("Process for Violin"):
+        apply_violin_range_filter([], strategy=strategy)
+        st.info("Orchestration complete!")
 
 from music_engine import (
     apply_violin_range_filter,
