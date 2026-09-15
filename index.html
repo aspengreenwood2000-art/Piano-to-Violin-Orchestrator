@@ -4,3 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano-to-Violin Orchestrator
+
+      const myPythonModule = `
+import numpy as np
+
+def calculate_bowing_physics(notes, tempo_bpm=120):
+    return "Calculated"
+`;
+
+stlite.mount({
+  entrypoint: "app.py",
+  files: {
+    "music_engine.py": myPythonModule
+  }
+}, document.getElementById("root"));
