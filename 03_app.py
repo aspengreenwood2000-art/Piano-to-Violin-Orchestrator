@@ -2,7 +2,7 @@ import io
 import music21 as m21
 import streamlit as st
 
-from music_engine import (
+from 02_music_engine import (
     apply_violin_range_filter,
     calculate_bowing_physics,
     find_playable_violin_chord,
