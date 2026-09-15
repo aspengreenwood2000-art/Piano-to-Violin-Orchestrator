@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano-to-Violin Orchestrator</title>
     </html>  
-``stlite.mount(
+stlite.mount(
   {
     requirements: ["music21"],
-    entrypoint: "src/app.py",
+    entrypoint: "03_app.py",
     files: {
-      "03_app.py": { url: "03_app.py" },
-      "src/02_music_engine.py": { url: "02_music_engine.py" }
+      "03_app.py": { url: "./03_app.py" },
+      "02_music_engine.py": { url: "./02_music_engine.py" }
     }
   },
   document.getElementById("root")
-)`;`
+);
